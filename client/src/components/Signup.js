@@ -1,9 +1,9 @@
+import '../App.css'
 function Signup(props) {
-    const success = props.success
     return (
-        <div>
-            <div>signup here</div>
-            <form>
+        <div className='action'>
+            <div className='action-title'><span>Signup Details</span></div>
+            <form className='form'>
                 <div>
                     <label>Username</label>
                     <input type="text" id="name"/>
@@ -17,12 +17,8 @@ function Signup(props) {
                     <input type="password" id="pwd" />
                 </div>
                 <div>
-                <div>
-                    <ul>
-                        <li onClick={success}>
-                            signup
-                        </li>
-                    </ul>
+                <div onClick={props.success} className="btn-submit">
+              <p>Signup</p>
                 </div>
                 
                 </div>

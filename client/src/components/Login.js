@@ -1,8 +1,9 @@
+import '../App.css'
 function Login(props){
     return(
-        <div>
-            <div>login here</div>
-            <form>
+        <div className='action'>
+                <div className='action-title'><span>Login Details</span></div>
+            <form className='form'>
                 <div>
                     <label>Username</label>
                     <input type="text" id="login_name"/>
@@ -11,12 +12,8 @@ function Login(props){
                     <label>Password</label>
                     <input type="password" id="login_pwd" />
                 </div>
-                <div>
-                    <ul>
-                        <li onClick={props.validation}>
-                            Login
-                        </li>
-                    </ul>
+                <div onClick={props.validation} className="btn-submit">
+                    <p>Login</p>
                 </div>
             </form>
         </div>

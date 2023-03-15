@@ -3,8 +3,19 @@ import Login from './Login';
 import Notification from './Notification'
 import React from 'react';
 import axios from 'axios';
+import "../App.css"
+import logo from '../assets/logo-black.png'
 
 class Body extends React.Component {
+    componentDidUpdate(){
+        if (this.state.selection) {
+            document.getElementById("tab1").style.borderBottom = "#1B4571 solid 3px "
+            document.getElementById("tab2").style.borderBottom = "none"
+        } else {
+            document.getElementById("tab1").style.borderBottom = "none"
+            document.getElementById("tab2").style.borderBottom = "#1B4571 solid 3px "
+        }
+    }
     constructor(props) {
         super(props)
         this.state = {
@@ -83,14 +94,22 @@ class Body extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.signupState}>go to login</button>
-                <button onClick={this.loginState}>go to signup</button>
-                <div>
+                
+                <div className='card-holder'>
+                    <img src={logo} alt='logo'/>
+                    <div className='switch-logsign'>
+                    <div onClick={this.signupState} id="tab1">go to login</div>
+                    <div onClick={this.loginState} id="tab2">go to signup</div>
+                    </div>
+                    
+                    <div className='logsign'>
                     {
                         this.state.selection ? <Login validation={this.validator} /> : <Signup success={this.showNotification}/>
                     }
+                    </div>
                 </div>
-                <div>
+                
+                {/* <div>
                     {
                         this.state.notify ? <Notification message= 'you can now proceed to' login={this.signupState}/> : null
                     }
@@ -99,7 +118,7 @@ class Body extends React.Component {
                     {
                         this.state.failed ? <Notification message= 'signup failed. Please try again.'/> : null
                     }
-                </div>
+                </div> */}
             </div>
             
         )
