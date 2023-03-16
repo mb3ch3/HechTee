@@ -7,4 +7,6 @@ class Admin < ApplicationRecord
     
     validates :password, :length => { :minimum => 6 }
     has_secure_password
+    has_many :employees
+    has_many :guests
 end

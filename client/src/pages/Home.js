@@ -2,23 +2,72 @@ import React from 'react'
 import '../App.css'
 import logo from '../assets/logo-no-background.png'
 import Dashboard from '../components/Dashboard'
-
-
-
+import EmployeeRegistration from '../components/Employeeregistration'
+import GuestRegistration from '../components/Guestregistration'
 
 
 class Home extends React.Component {
-    checkHeight() {
+    componentDidMount() {
+        window.addEventListener('scroll', this.listenToScroll)
+    }
 
-            const scroll = window.scrollY;
-            console.log( "Scrolled: " + scroll + "px")
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.listenToScroll)
     }
-    componentDidUpdate() {
-        this.checkHeight()
-    }
+
     constructor(props) {
         super(props)
+        this.state = {
+            theposition: '',
+            choice: 'dashboard'
+        }
+        this.addGuest = this.addGuest.bind(this)
+        this.addEmployee = this.addEmployee.bind(this)
+        this.setDashboard = this.setDashboard.bind(this)
+    }
+    addGuest(){
+        this.setState({choice: "guest"})
+    }
+    addEmployee(){
+        this.setState({choice: "employee"})
+    }
+    setDashboard(){
+        this.setState({choice : "dashboard"})
+    }
+    logout(){
+        window.location.replace("/")
+    }
+    listenToScroll = () => {
+        const heading = document.getElementById("bg")
+        const winScroll =
+            document.body.scrollTop || document.documentElement.scrollTop
 
+        // const height =
+        //   document.documentElement.scrollHeight -
+        //   document.documentElement.clientHeight
+
+        const scrolled = winScroll
+
+        this.setState({
+            theposition: scrolled,
+        })
+        console.log(" position is: " + this.state.theposition)
+        if (this.state.theposition > 20) {
+            console.log("add style here")
+            heading.style.position = "fixed";
+            heading.style.top = 0
+            heading.style.background = "white"
+            heading.style.height = "10vh"
+
+
+        } else {
+            heading.style.position = "relative"
+            heading.style.top = ""
+            heading.style.height = "5vh"
+            heading.style.background = "white"
+
+
+        }
     }
     render() {
         const time = new Date().getHours()
@@ -27,12 +76,30 @@ class Home extends React.Component {
             <div className='content'>
                 <div className='side-panel'>
                     <img src={logo} alt='logo' />
+                    <div className='tab-links'>
+                        <div className={`tab-link ${this.state.choice === "dashboard" ? "tab-active" : ""}`} id='dashboard' onClick={this.setDashboard}>
+                            Dashboard
+                        </div>
+                        <div className={`tab-link ${this.state.choice === "guest" ? "tab-active" : ""}`} id='guest' onClick={this.addGuest}>
+                            Add guest
+                        </div>
+                        <div className={`tab-link ${this.state.choice === "employee" ? "tab-active" : ""}`} id='employee' onClick={this.addEmployee}>
+                            Add Employee
+                        </div>
+                        <div className='tab-link' onClick={this.logout}>
+                            Logout
+                        </div>
+                    </div>
+
                 </div>
                 <div className='main-panel'>
                     {
                         time >= 0 && time <= 12 ? <div className='greeting'>good morning,</div> : time > 12 && time <= 18 ? <div className='greeting'>good afternoon,</div> : <div className='greeting'>good evening,</div>
                     }
-                    <Dashboard />
+                    {
+                        this.state.choice === "dashboard" ? <Dashboard /> : this.state.choice === "employee" ? <EmployeeRegistration/> : this.state.choice === "guest" ? <GuestRegistration/>: <Dashboard/>
+                    }
+                    
                 </div>
             </div>
         )
