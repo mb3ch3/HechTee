@@ -186,6 +186,7 @@
   padding: 2rem 0;
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 .side-panel img{
   max-height: 15vh;
@@ -204,7 +205,7 @@
 }
 .tab-link{
   color: white;
-  width: 24.18vw;
+  width: 24.1vw;
   /* border: #000 2px solid; */
   height: 100%;
   display: flex;
@@ -344,7 +345,13 @@ table tr th:nth-child(1){
   height: 100%;
   margin: 1rem 0 1rem 1rem;
   padding-right: 2rem;
-  
+  /* background: red; */
+  display: grid;
+  justify-content: flex-start;
+}
+.guestsub{
+  margin-right: 1rem;
+  text-transform: capitalize;
 }
 
 /* employee */
@@ -355,11 +362,48 @@ table tr th:nth-child(1){
   
 }
 
-/* assignment */
-.assignment-content{
-  height: 100%;
-  margin: 1rem 0 1rem 1rem;
-  padding-right: 2rem;
-  
+.regform{
+  width: 155vh;
+  display: grid;
 }
+.regimage{
+  display: grid;
+  justify-content: end;
+  border-bottom: #000 .5px transparent;
+  box-shadow: #1B457120 3px 4px 5px .1px;
+
+}
+.regimage img{
+  max-width: 10vw;
+}
+
+.regfields{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.regfield{
+  display: grid;
+  margin-inline: 1rem;
+
+}
+.regfield:nth-child(3){
+  margin-top: 1rem;
+}
+
+.regfield label{
+  margin-top: .3rem;
+  margin-bottom: .3rem;
+  font-size: medium;
+  font-weight: 600;
+}
+.regfield input{
+  padding: .5rem .3rem;
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid #00000040;
+  background-color: white;
+}
+
 

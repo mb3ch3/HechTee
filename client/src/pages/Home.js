@@ -4,11 +4,13 @@ import logo from '../assets/logo-no-background.png'
 import Dashboard from '../components/Dashboard'
 import EmployeeRegistration from '../components/Employeeregistration'
 import GuestRegistration from '../components/Guestregistration'
+import axios from "axios"
 
 
 class Home extends React.Component {
     componentDidMount() {
         window.addEventListener('scroll', this.listenToScroll)
+        
     }
 
     componentWillUnmount() {
@@ -19,12 +21,14 @@ class Home extends React.Component {
         super(props)
         this.state = {
             theposition: '',
-            choice: 'dashboard'
+            choice: 'dashboard',
+            employees: ''
         }
         this.addGuest = this.addGuest.bind(this)
         this.addEmployee = this.addEmployee.bind(this)
         this.setDashboard = this.setDashboard.bind(this)
     }
+    
     addGuest(){
         this.setState({choice: "guest"})
     }
