@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2023_03_16_132814) do
     t.string "gstname"
     t.string "room"
     t.integer "employee_id"
+    t.integer "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

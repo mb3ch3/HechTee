@@ -13,6 +13,6 @@ class GuestsController < ApplicationController
     end 
     private 
     def permit_params
-        params.permit(:gstname, :room, :employee_id)
-    end 
+        params.permit(:gstname, :room, :employee_id, :admin_id)
+    end  
 end

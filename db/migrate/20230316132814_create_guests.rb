@@ -4,6 +4,7 @@ class CreateGuests < ActiveRecord::Migration[6.1]
       t.string :gstname
       t.string :room
       t.integer :employee_id
+      t.integer :admin_id
       t.timestamps
     end
   end
