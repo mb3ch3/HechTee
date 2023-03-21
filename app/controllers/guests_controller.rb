@@ -1,7 +1,7 @@
 class GuestsController < ApplicationController
     def create 
         guest = Guest.create(permit_params)
-        if guest.valid?
+        if guest.valid? 
             render json: guest, status: :created 
         else 
             render json: {errors: guest.errors}, status: :unprocessable_entity
