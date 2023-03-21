@@ -4,7 +4,7 @@ import logo from '../assets/logo-no-background.png'
 import Dashboard from '../components/Dashboard'
 import EmployeeRegistration from '../components/Employeeregistration'
 import GuestRegistration from '../components/Guestregistration'
-import axios from "axios"
+// import Modal from "../components/Modal";
 
 
 class Home extends React.Component {
@@ -22,13 +22,22 @@ class Home extends React.Component {
         this.state = {
             theposition: '',
             choice: 'dashboard',
-            employees: ''
+            employees: '',
+            showModal:false
         }
         this.addGuest = this.addGuest.bind(this)
         this.addEmployee = this.addEmployee.bind(this)
         this.setDashboard = this.setDashboard.bind(this)
+        this.handleShow = this.handleShow.bind(this)
+        this.handleHide = this.handleHide.bind(this)
     }
-    
+    handleHide(){
+        // this.setState({showModal: false})
+        console.log("close clicked")
+    }
+    handleShow(){
+        this.setState({showModal: true})
+    }
     addGuest(){
         this.setState({choice: "guest"})
     }
@@ -55,9 +64,9 @@ class Home extends React.Component {
         this.setState({
             theposition: scrolled,
         })
-        console.log(" position is: " + this.state.theposition)
+        // console.log(" position is: " + this.state.theposition)
         if (this.state.theposition > 20) {
-            console.log("add style here")
+            // console.log("add style here")
             heading.style.position = "fixed";
             heading.style.top = 0
             heading.style.background = "white"
@@ -78,6 +87,7 @@ class Home extends React.Component {
 
         return (
             <div className='content'>
+                
                 <div className='side-panel'>
                     <img src={logo} alt='logo' />
                     <div className='tab-links'>
