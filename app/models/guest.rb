@@ -1,4 +1,4 @@
 class Guest < ApplicationRecord
-    has_one :employee
     belongs_to :admin
+    belongs_to :employee
 end
