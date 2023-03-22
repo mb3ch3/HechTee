@@ -397,7 +397,7 @@ table tr th:nth-child(1) {
 }
 
 .regform {
-  width: 155vh;
+  width: 70vw;
   display: grid;
 }
 
