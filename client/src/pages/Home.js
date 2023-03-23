@@ -10,7 +10,6 @@ import GuestRegistration from '../components/Guestregistration'
 class Home extends React.Component {
     componentDidMount() {
         window.addEventListener('scroll', this.listenToScroll)
-        
     }
 
     componentWillUnmount() {
@@ -40,15 +39,22 @@ class Home extends React.Component {
     }
     addGuest(){
         this.setState({choice: "guest"})
+        document.getElementById("nav").style = "none"
     }
     addEmployee(){
         this.setState({choice: "employee"})
+        document.getElementById("nav").style = "none"
+
     }
     setDashboard(){
         this.setState({choice : "dashboard"})
+        document.getElementById("nav").style = "none"
+
     }
     logout(){
         window.location.replace("/")
+        document.getElementById("nav").style = "none"
+
     }
     listenToScroll = () => {
         const heading = document.getElementById("bg")
@@ -78,8 +84,14 @@ class Home extends React.Component {
             heading.style.top = ""
             heading.style.height = "5vh"
             heading.style.background = "white"
-
-
+        }
+    }
+    navToggle = () => {
+        const nav = document.getElementById("nav")
+        if(nav.style.display === "inline"){
+            nav.style.display = "none"
+        } else {
+            nav.style.display = "inline"
         }
     }
     render() {
@@ -87,9 +99,18 @@ class Home extends React.Component {
 
         return (
             <div className='content'>
-                
+                <div className='ham-items' id='nav'>
+                        <div className='ham-item' onClick={this.setDashboard}>Dashboard</div>
+                        <div className='ham-item' onClick={this.addGuest}>Add guest</div>
+                        <div className='ham-item' onClick={this.addEmployee}>Add Employee</div>
+                        <div className='ham-item' onClick={this.logout}>Logout</div>
+                    </div>
                 <div className='side-panel'>
                     <img src={logo} alt='logo' />
+                    <div className='hamburger' id='ham' onClick={this.navToggle}>
+                        menu here
+                    </div>
+                    
                     <div className='tab-links'>
                         <div className={`tab-link ${this.state.choice === "dashboard" ? "tab-active" : ""}`} id='dashboard' onClick={this.setDashboard}>
                             Dashboard
