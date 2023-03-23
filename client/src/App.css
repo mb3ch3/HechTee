@@ -490,7 +490,33 @@ table tr th:nth-child(1) {
 .mess {
   text-align: center;
 }
+  .hamburger, .ham-items{
+  display: none;
+}
 @media only screen and (max-width: 990px) {
+
+.hamburger{
+  display: inline;
+  margin: 2rem 2rem 0 0;
+  color: white;
+}
+.ham-items{
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  background: #1B4571;
+  position: absolute;
+  z-index: 9999;
+  top: 17vh;
+  transition: all .6s;
+}
+.ham-item{
+  font-size: large;
+  padding: 1.5rem 2rem;
+  border-bottom: #BF2051 2px solid;
+  color: white;
+}
+
   .overlay {
     max-width: 100vw;
     max-height: 100vh;
