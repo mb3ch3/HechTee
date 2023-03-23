@@ -108,7 +108,7 @@ class Home extends React.Component {
                 <div className='side-panel'>
                     <img src={logo} alt='logo' />
                     <div className='hamburger' id='ham' onClick={this.navToggle}>
-                        menu here
+                        Menu
                     </div>
                     
                     <div className='tab-links'>

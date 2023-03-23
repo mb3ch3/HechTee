@@ -499,6 +499,7 @@ table tr th:nth-child(1) {
   display: inline;
   margin: 2rem 2rem 0 0;
   color: white;
+  font-weight: bold;
 }
 .ham-items{
   min-height: 100vh;
@@ -585,6 +586,8 @@ table tr th:nth-child(1) {
   /* dashboard */
   .dash-content {
     padding-right: 0;
+    margin: 1rem 0 1rem 1rem ;
+    margin-right: 0;
   }
 
   .lead-cards {
@@ -616,7 +619,10 @@ table tr th:nth-child(1) {
   .main-card-title {
     font-size: large;
   }
-
+  .table{
+    overflow: scroll;
+    width: 100%;
+  }
   td {
     text-align: left;
     padding: .3rem .5rem;

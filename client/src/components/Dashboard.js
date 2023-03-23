@@ -146,6 +146,7 @@ class Dashboard extends React.Component {
                         <div className="main-card-title">
                             Guests
                         </div>
+                        <div className="table">
                         <table>
                             <thead>
                                 <tr>
@@ -166,6 +167,7 @@ class Dashboard extends React.Component {
                                 )}
                             </tbody>
                         </table>
+                        </div> 
                     </div>
                 </div>
             </div>
