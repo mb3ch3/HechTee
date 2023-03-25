@@ -40,7 +40,6 @@ class Dashboard extends React.Component {
         this.setState({ showModal: false });
     }
     componentDidMount() {
-
         try {
             axios({
                 url: 'http://127.0.0.1:3000/employees',

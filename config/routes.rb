@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#login"
   get "/employees", to: "employees#index"
   post "/createmp", to: "employees#create"
+  post"/delemp", to: "employees#delete"
   get "/guests", to: "guests#index"
   post "/creategst", to: "guests#create"
 end 

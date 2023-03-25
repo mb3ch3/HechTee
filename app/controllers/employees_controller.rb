@@ -12,6 +12,15 @@ class EmployeesController < ApplicationController
         employee = Employee.all
         render json: employee, status: :ok
     end 
+    
+    def delete
+        employee = Employee.find_by(empname: permit_params[:empname])
+        if employee
+            employee.destroy
+        else
+            render json: {error: "employee does not exist"}
+        end
+    end
 
     private 
     def permit_params
