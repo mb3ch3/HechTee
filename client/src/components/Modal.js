@@ -9,9 +9,9 @@ function Modal(props){
                     <div className='modal-title'>
                         {props.name}
                     </div>
-                    <div>{props.id}</div>
-                    <div>{props.phone}</div>
-                    <div>{props.jobdes}</div>
+                    <div className='modal-number'>Employee Number: <span>{props.id}</span> </div>
+                    <div className='modal-number'>Phone Number: <span>{props.phone}</span></div>
+                    <div className='modal-number'>Job Description: <span>{props.jobdes}</span></div>
                     <button onClick={()=>{
                         try {
                             axios({

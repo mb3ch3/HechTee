@@ -450,16 +450,16 @@ table tr th:nth-child(1) {
 .modal {
   position: absolute;
   z-index: 9999999;
-  width: 100%;
+  width: 75%;
   height: 100%;
 }
 
 .modal-outer {
-  background: #00000030;
+  background: #00000010;
   width: 100%;
   height: 100%;
   display: grid;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -485,8 +485,19 @@ table tr th:nth-child(1) {
   font-size: xx-large;
   margin-bottom: 1rem;
   text-transform: capitalize;
+  border-bottom: #00000030 2px solid;
+  padding-bottom: 0.3rem;
 }
+.modal-number{
+  font-weight: 300;
+  text-transform: capitalize;
+  font-size: larger;
+  margin: .5rem 0;
+}
+.modal-number span{
+  font-weight: 600;
 
+}
 .mess {
   text-align: center;
 }
@@ -636,4 +647,44 @@ table tr th:nth-child(1) {
   table tr th:nth-child(1) {
     padding-left: .6rem;
   }
+
+  /* modal */
+
+.modal {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-outer {
+  justify-content: center;
+}
+
+.modal-inner {
+  height: auto;
+  width: 70vw;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: auto;
+}
+.modal-image{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.modal-image img {
+  max-width: 20vw;
+  grid-area: 1/1/2/2;
+}
+
+.modal-details {
+  text-align: center;
+  padding: 1rem;
+  grid-area: 2/1/3/2;
+}
+.modal-number{
+  font-weight: 300;
+  text-transform: capitalize;
+  font-size: larger;
+  margin: .5rem 0;
+}
+
 }
