@@ -21,6 +21,7 @@ class Dashboard extends React.Component {
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.handleId = this.handleId.bind(this);
+        this.updateEmployees = this.updateEmployees.bind(this)
     }
     handleId(idnumber,empname,phone,jobdes){
         this.setState({id:idnumber})
@@ -38,6 +39,23 @@ class Dashboard extends React.Component {
 
     handleCloseModal() {
         this.setState({ showModal: false });
+    }
+    updateEmployees(){
+        try {
+            axios({
+                url: 'http://127.0.0.1:3000/employees',
+                method: 'GET',
+            })
+                .then((res) => {
+                    // console.log("employees found: " + JSON.stringify(res.data))
+                    this.setState({ emps: res.data })
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        } catch (error) {
+            console.log(error)
+        }
     }
     componentDidMount() {
         try {
@@ -88,7 +106,7 @@ class Dashboard extends React.Component {
             <div>
                 {
                     this.state.showModal ? <div className="modal">
-                    <Modal name={this.state.empname} id={this.state.id} jobdes={this.state.jobdes} phone={this.state.phone} close={this.handleCloseModal} />
+                    <Modal name={this.state.empname} id={this.state.id} jobdes={this.state.jobdes} phone={this.state.phone} close={this.handleCloseModal} update={this.updateEmployees} />
                 </div> : <div></div>
                 }
                 

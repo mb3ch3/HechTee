@@ -20,7 +20,10 @@ function Modal(props){
                                 data: {
                                     empname: props.name
                                 },
-                            }).then((res)=>{console.log("deletion successful")})
+                            }).then((res)=>{
+                                console.log("deletion successful")
+                                props.update()
+                            })
                             .catch(error=>{console.log("error")})
                         } catch (error) {
                             console.log("error")
